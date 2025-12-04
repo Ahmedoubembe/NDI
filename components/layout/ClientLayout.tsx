@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Header from './Header';
 import KeyboardGuide from '@/components/accessibility/KeyboardGuide';
 import KeyboardShortcuts from '@/components/accessibility/KeyboardShortcuts';
 import KeyboardHint from '@/components/accessibility/KeyboardHint';
@@ -15,7 +14,6 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
 
   return (
     <>
-      <Header />
       {children}
       <KeyboardHint onOpenGuide={() => setIsKeyboardGuideOpen(true)} />
       <KeyboardGuide
