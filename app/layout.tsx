@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/layout/Header";
+import ClientLayout from "@/components/layout/ClientLayout";
 
 export const metadata: Metadata = {
   title: "NIRD - Numérique Inclusif, Responsable et Durable",
@@ -15,8 +15,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className="antialiased font-sans">
-        <Header />
-        {children}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

@@ -5,7 +5,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
-export default function Header() {
+interface HeaderProps {
+  onOpenKeyboardGuide?: () => void;
+}
+
+export default function Header({ onOpenKeyboardGuide }: HeaderProps) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -53,15 +57,44 @@ export default function Header() {
                 </motion.div>
               </Link>
             ))}
+
+            {/* Keyboard Guide Button */}
+            {onOpenKeyboardGuide && (
+              <motion.button
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={onOpenKeyboardGuide}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-white hover:bg-white/20 transition-all border border-white/30"
+                aria-label="Ouvrir le guide clavier"
+                title="Raccourcis clavier (Shift + ?)"
+              >
+                <span>⌨️</span>
+                <span className="hidden lg:inline">Aide</span>
+              </motion.button>
+            )}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-white text-2xl"
-          >
-            {isMenuOpen ? '✕' : '☰'}
-          </button>
+          {/* Mobile Buttons */}
+          <div className="md:hidden flex items-center gap-3">
+            {/* Keyboard Guide Button (Mobile) */}
+            {onOpenKeyboardGuide && (
+              <button
+                onClick={onOpenKeyboardGuide}
+                className="text-white text-2xl"
+                aria-label="Ouvrir le guide clavier"
+              >
+                ⌨️
+              </button>
+            )}
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-white text-2xl"
+            >
+              {isMenuOpen ? '✕' : '☰'}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}

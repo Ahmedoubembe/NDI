@@ -68,7 +68,7 @@ export default function VillageMap() {
         animate={{ opacity: 1, x: 0 }}
         className="absolute top-8 right-8 z-10"
       >
-        <button
+        <button data-toggle-view="true"
           onClick={() => setViewMode(viewMode === 'map' ? 'list' : 'map')}
           className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-lg border border-white/20 hover:bg-white/20 transition-all"
         >
