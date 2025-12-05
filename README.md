@@ -117,4 +117,4 @@ Comment offrir **simplicité** aux novices ET **puissance** aux experts ? Notre 
 
 ---
 
-*Ce document constitue la justification ergonomique du projet. Les choix techniques d'implémentation en découlent directement.*
+
